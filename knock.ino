@@ -141,6 +141,7 @@ void unlock(){
   Serial.println("Ready for usage.");
 }
 
+//Compare knocked sequence to master lock
 void validate_sequence(){
   boolean valid = 1;
   for(int i = 0; i < kv_seq_size; i++){
@@ -191,7 +192,7 @@ void kv_seq_end(){
   }
 }
 
-
+//Main function called every Arduino cycle
 void loop() {
   mic_analog = analogRead(MIC_PIN);
   updateAverage(mic_analog);
